@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Bear Has Something To Say">
 <meta property="og:description" content="The forest filed a complaint. Tap carefully.">
-<meta property="og:image" content="https://brandonday-es.github.io/bear-message/bear-message.png">
+<meta property="og:image" content="https://brandonday-es.github.io/bear-message/preview-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,7 +180,7 @@
 <section id="stage3">
   <div class="poster">
     <div class="hero">
-      <img src="bear-message.png" alt="Bear delivering an extremely clear message">
+      <img id="bear-img" data-src="bear-message.png" alt="Bear delivering an extremely clear message">
       <div class="stamp">Bear Approved</div>
       <div class="bubble">Respectfully,<br>get bent.</div>
     </div>
@@ -270,6 +270,8 @@ function startLoading(){
     if(pct>=100){
       clearInterval(interval);
       setTimeout(()=>{
+        const bearImg=document.getElementById('bear-img');
+        if(!bearImg.src){bearImg.src=bearImg.dataset.src}
         document.getElementById('stage2').style.display='none';
         document.getElementById('stage3').style.display='block';
         document.body.style.overflow='auto';
